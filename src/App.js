@@ -45,6 +45,16 @@ const App = () => {
     }
   }
 
+  function convertIncorrectAnswersToObj(incorrectAnswersArray) {
+    return incorrectAnswersArray.map(incorrectAnswer => {
+      return {
+        value: incorrectAnswer,
+      id: nanoid(),
+      isHeld: false,
+      isCorrect: false
+      }
+    })
+  }
   
   function shuffleArray(array) {
     return array.sort(() => Math.random() - 0.5);
