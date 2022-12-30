@@ -11,6 +11,7 @@ body {
 
 .container {
   position: relative;
+  background-color: #f5f7fb;
   min-height: 100vh;
 }
 
@@ -27,12 +28,11 @@ body {
 }
 
 .intro {
-  background-color: #f5f7fb;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  min-height: 100vh;
 }
 
 .intro h1 {
@@ -63,3 +63,19 @@ body {
   border-radius: 15px;
   cursor: pointer;
 }
+
+.main {
+  padding-top: 40px;
+  padding-left: 75px;
+}
+
+.question {
+  padding: 45px 70px;
+  margin: 0 auto;
+  width: 800px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 19px;
+  color: #293264;
+}
+

@@ -1,10 +1,8 @@
 
 
-const Questions = () => {
+const Questions = ({question}) => {
   return (
-    <div>
-      
-    </div>
+      <div className="question">{question.question}</div>
   );
 }
 
