@@ -26,10 +26,10 @@ const App = () => {
   }
 
   function convertArrayToObj(array) {
-    return array.map((item) => {
+    return array && array.map((item) => {
       return {
         ...item,
-        allAnswers: [item.correct_answer, ...item.incorrect_answers],
+        allAnswers: shuffleArray([convertCorrectAnswerToObj(item.correct_answer), ...convertIncorrectAnswersToObj(item.incorrect_answers)]),
         isHeld: false,
         id: nanoid(),
       };
