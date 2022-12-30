@@ -36,6 +36,15 @@ const App = () => {
     });
   }
 
+  function convertCorrectAnswerToObj(correctAnswer) {
+    return {
+      value: correctAnswer,
+      id: nanoid(),
+      isHeld: false,
+      isCorrect: true
+    }
+  }
+
   
   function shuffleArray(array) {
     return array.sort(() => Math.random() - 0.5);
