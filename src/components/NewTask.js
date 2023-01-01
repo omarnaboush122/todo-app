@@ -1,7 +1,6 @@
-import { useState } from "react";
 
-const NewTask = ({ mode,addTask }) => {
-  const [inputText, setInputText] = useState("");
+
+const NewTask = ({ mode,addTask,inputText,setInputText }) => {
 
   return (
     <div className={`new-task ${mode}`}>

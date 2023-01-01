@@ -13,6 +13,7 @@ const App = () => {
     },
   ]);
   const [mode, setMode] = useState("dark");
+  const [inputText, setInputText] = useState("");
 
   function toggleMode() {
     if (mode === "dark") {
@@ -27,8 +28,17 @@ const App = () => {
       text: taskText,
       id: nanoid(),
       completed: false,
+    };
+    if(taskText !== "") {
+      setTasksArray((prevTasksArray) => [newTask, ...prevTasksArray]);
     }
-    setTasksArray(prevTasksArray => [newTask,...prevTasksArray]);
+    setInputText("");
+  }
+
+  function deleteTask(id) {
+    setTasksArray((prevTasksArray) =>
+      prevTasksArray.filter((task) => task.id !== id)
+    );
   }
 
   return (
@@ -42,8 +52,12 @@ const App = () => {
             onClick={toggleMode}
           />
         </div>
-        <NewTask mode={mode} addTask={addTask} />
-        <TasksContainer mode={mode} tasksArray={tasksArray} />
+        <NewTask mode={mode} addTask={addTask} inputText={inputText} setInputText={setInputText} />
+        <TasksContainer
+          mode={mode}
+          tasksArray={tasksArray}
+          deleteTask={deleteTask}
+        />
       </div>
     </div>
   );
