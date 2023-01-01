@@ -1,6 +1,7 @@
 import Header from "./components/Header";
 import "./App.css";
 import { useState } from "react";
+import TasksContainer from "./components/TasksContainer";
 
 const App = () => {
   const [dark,setDark] = useState(true);
@@ -11,6 +12,7 @@ const App = () => {
   return (
     <div className="container">
       <Header dark={dark} toggleMode={toggleMode}/>
+      <TasksContainer/>
     </div>
   );
 }

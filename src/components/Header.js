@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import NewTask from "./NewTask";
 
 const Header = ({ toggleMode, dark }) => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -47,6 +48,7 @@ const Header = ({ toggleMode, dark }) => {
           onClick={toggleMode}
         />
       </div>
+      <NewTask/>
     </header>
   );
 };
