@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
 
 * {
   margin: 0;
@@ -7,38 +7,33 @@
 }
 
 :root {
+  /* ### Primary */
 
-/* ### Primary */
+  --BrightBlue: hsl(220, 98%, 61%);
+  --CheckBackground: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
 
---BrightBlue: hsl(220, 98%, 61%);
---CheckBackground: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
+  /* ### Light Theme */
 
+  --VeryLightGray: hsl(0, 0%, 98%);
+  --VeryLightGrayishBlue: hsl(236, 33%, 92%);
+  --LightGrayishBlue: hsl(233, 11%, 84%);
+  --DarkGrayishBlue: hsl(236, 9%, 61%);
+  --VeryDarkGrayishBlue: hsl(235, 19%, 35%);
 
-/* ### Light Theme */
+  /* ### Dark Theme */
 
---VeryLightGray: hsl(0, 0%, 98%);
---VeryLightGrayishBlue: hsl(236, 33%, 92%);
---LightGrayishBlue: hsl(233, 11%, 84%);
---DarkGrayishBlue: hsl(236, 9%, 61%);
---VeryDarkGrayishBlue: hsl(235, 19%, 35%);
-
-/* ### Dark Theme */
-
---VeryDarkBlue: hsl(235, 21%, 11%);
---VeryDarkDesaturatedBlue: hsl(235, 24%, 19%);
---LightGrayishBlue: hsl(234, 39%, 85%);
---LightGrayishBluehover: hsl(236, 33%, 92%);
---DarkGrayishBlue: hsl(234, 11%, 52%);
---VeryDarkGrayishBlue: hsl(233, 14%, 35%);
---VeryDarkGrayishBlue: hsl(237, 14%, 26%);
-
+  --VeryDarkBlue: hsl(235, 21%, 11%);
+  --VeryDarkDesaturatedBlue: hsl(235, 24%, 19%);
+  --LightGrayishBlue: hsl(234, 39%, 85%);
+  --LightGrayishBluehover: hsl(236, 33%, 92%);
+  --DarkGrayishBlue: hsl(234, 11%, 52%);
+  --VeryDarkGrayishBlue: hsl(233, 14%, 35%);
+  --VeryDarkGrayishBlue: hsl(237, 14%, 26%);
 }
 
 body {
-  font-family: 'Josefin Sans', sans-serif;
-  background-color: var(--VeryDarkBlue);
+  font-family: "Josefin Sans", sans-serif;
 }
-
 
 .container {
   display: flex;
@@ -79,7 +74,6 @@ body {
 
 .new-task {
   width: 550px;
-  background-color: var(--VeryDarkDesaturatedBlue);
   padding: 1.3rem;
   border-radius: 10px;
   display: flex;
@@ -94,12 +88,12 @@ body {
   border: 1px solid var(--DarkGrayishBlue);
   margin-right: 1.4rem;
   margin-left: 0.5rem;
+  cursor: pointer;
 }
 
 .new-task input {
   flex: 1;
   font-size: 1.2rem;
-  background-color: var(--VeryDarkDesaturatedBlue);
   color: var(--VeryLightGrayishBlue);
   border: none;
   outline: none;
@@ -110,7 +104,6 @@ body {
 }
 
 .task {
-  background-color: var(--VeryDarkDesaturatedBlue);
   padding: 1.3rem;
   display: flex;
   align-items: center;
@@ -123,7 +116,6 @@ body {
 }
 
 .task .text {
-  color: var(--VeryLightGrayishBlue);
   margin-right: auto;
 }
 
@@ -144,8 +136,13 @@ body {
   gap: 1rem;
 }
 
-.filter div,.completed {
+.filter div,
+.completed {
   cursor: pointer;
+}
+
+.filter div:hover,.completed:hover {
+  color: var(--VeryLightGrayishBlue);
 }
 
 .filter .active {

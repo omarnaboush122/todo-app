@@ -38,7 +38,6 @@ const Header = ({ toggleMode, dark }) => {
       window.removeEventListener("resize", handleWindowResize);
     };
   }, []);
-
   return (
     <header className="header" style={changeImage()}>
       <div className="top">
@@ -49,8 +48,8 @@ const Header = ({ toggleMode, dark }) => {
           onClick={toggleMode}
         />
       </div>
-      <NewTask/>
-      <TasksContainer/>
+      <NewTask dark={dark}/>
+      <TasksContainer dark={dark}/>
     </header>
   );
 };

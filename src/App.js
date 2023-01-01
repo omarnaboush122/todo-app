@@ -8,8 +8,12 @@ const App = () => {
   function toggleMode() {
     setDark(prevDark => !prevDark);
   }
+
+  const style = {
+    backgroundColor: dark ? "hsl(235, 21%, 11%)" : "hsl(0, 0%, 98%)"
+  }
   return (
-    <div className="container">
+    <div className="container" style={style}>
       <Container dark={dark} toggleMode={toggleMode}/>
     </div>
   );
