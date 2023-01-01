@@ -22,6 +22,15 @@ const App = () => {
     }
   }
 
+  function addTask(taskText) {
+    const newTask = {
+      text: taskText,
+      id: nanoid(),
+      completed: false,
+    }
+    setTasksArray(prevTasksArray => [newTask,...prevTasksArray]);
+  }
+
   return (
     <div className={`container ${mode}`}>
       <div className={`header ${mode}`}>
@@ -33,7 +42,7 @@ const App = () => {
             onClick={toggleMode}
           />
         </div>
-        <NewTask mode={mode} />
+        <NewTask mode={mode} addTask={addTask} />
         <TasksContainer mode={mode} tasksArray={tasksArray} />
       </div>
     </div>
