@@ -1,87 +1,18 @@
-import { useEffect, useState } from "react";
+import Header from "./components/Header";
 import "./App.css";
-import Intro from "./components/Intro";
-import Questions from "./components/Questions";
-import { nanoid } from "nanoid";
-import topBlob from "./images/blob 5 (1).png";
-import bottomBlob from "./images/blob 5.png";
+import { useState } from "react";
 
 const App = () => {
-  const [startQuiz, setStartQuiz] = useState(true);
-  const [questionsArray, setQuestionsArray] = useState([]);
-  const [isChecked,setIsChecked] = useState(false);
-  const [isFeteched,setIsFetched] = useState(false);
+  const [dark,setDark] = useState(true);
 
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  function fetchData() {
-    fetch(
-      "https://opentdb.com/api.php?amount=5&category=21&difficulty=easy&type=multiple"
-    )
-      .then((res) => res.json())
-      .then((data) => convertArrayToObj(data.results))
-      .then((results) => setQuestionsArray(results));
+  function toggleMode() {
+    setDark(prevDark => !prevDark);
   }
-
-  function convertArrayToObj(array) {
-    return array && array.map((item) => {
-      return {
-        ...item,
-        allAnswers: shuffleArray([convertCorrectAnswerToObj(item.correct_answer), ...convertIncorrectAnswersToObj(item.incorrect_answers)]),
-        isHeld: false,
-        id: nanoid(),
-      };
-    });
-  }
-
-  function convertCorrectAnswerToObj(correctAnswer) {
-    return {
-      value: correctAnswer,
-      id: nanoid(),
-      isHeld: false,
-      isCorrect: true
-    }
-  }
-
-  function convertIncorrectAnswersToObj(incorrectAnswersArray) {
-    return incorrectAnswersArray.map(incorrectAnswer => {
-      return {
-        value: incorrectAnswer,
-      id: nanoid(),
-      isHeld: false,
-      isCorrect: false
-      }
-    })
-  }
-  
-  function shuffleArray(array) {
-    return array.sort(() => Math.random() - 0.5);
-  }
-
-  function getStarted() {
-    setStartQuiz(true);
-  }
-
-  const allQuestions = questionsArray.map((question) => {
-    return <Questions key={question.id} question={question} />;
-  });
   return (
     <div className="container">
-      {startQuiz ? (
-        allQuestions
-      ) : (
-        <Intro getStarted={getStarted}/>
-      )}
-      <div className="top">
-        <img src={topBlob} alt="top-blob" />
-      </div>
-      <div className="bottom">
-        <img src={bottomBlob} alt="bottom-blob" />
-      </div>
+      <Header dark={dark} toggleMode={toggleMode}/>
     </div>
   );
-};
+}
 
 export default App;

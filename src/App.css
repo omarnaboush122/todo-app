@@ -1,81 +1,75 @@
-@import url("https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+:root {
+
+/* ### Primary */
+
+--BrightBlue: hsl(220, 98%, 61%);
+--CheckBackground: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
+
+
+/* ### Light Theme */
+
+--VeryLightGray: hsl(0, 0%, 98%);
+--VeryLightGrayishBlue: hsl(236, 33%, 92%);
+--LightGrayishBlue: hsl(233, 11%, 84%);
+--DarkGrayishBlue: hsl(236, 9%, 61%);
+--VeryDarkGrayishBlue: hsl(235, 19%, 35%);
+
+/* ### Dark Theme */
+
+--VeryDarkBlue: hsl(235, 21%, 11%);
+--VeryDarkDesaturatedBlue: hsl(235, 24%, 19%);
+--LightGrayishBlue: hsl(234, 39%, 85%);
+--LightGrayishBluehover: hsl(236, 33%, 92%);
+--DarkGrayishBlue: hsl(234, 11%, 52%);
+--VeryDarkGrayishBlue: hsl(233, 14%, 35%);
+--VeryDarkGrayishBlue: hsl(237, 14%, 26%);
+
+}
+
 body {
-  font-family: "Karla", sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
+  background-color: var(--VeryDarkBlue);
 }
 
 .container {
-  position: relative;
-  background-color: #f5f7fb;
-  min-height: 100vh;
-}
-
-.container .top {
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-
-.container .bottom {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-}
-
-.intro {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   min-height: 100vh;
 }
 
-.intro h1 {
-  color: #293264;
-  font-size: 32px;
+.header {
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 70px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.header .top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 550px;
+  margin: auto;
+}
+
+.header h1 {
+  color: #fff;
+  font-size: 35px;
   font-weight: 700;
-  line-height: 37px;
-  margin-bottom: 10px;
+  letter-spacing: 10px;
+  text-transform: uppercase;
 }
 
-.intro p {
-  color: #293264;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 19px;
-  margin-bottom: 30px;
-}
-
-.intro button {
-  width: 193px;
-  height: 52px;
-  background-color: #4D5B9E;
-  color: #f5f7fb;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 19px;
-  border: none;
-  border-radius: 15px;
+.header img {
   cursor: pointer;
-}
-
-.main {
-  padding-top: 40px;
-  padding-left: 75px;
-}
-
-.question {
-  padding: 45px 70px;
-  margin: 0 auto;
-  width: 800px;
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 19px;
-  color: #293264;
 }
 
