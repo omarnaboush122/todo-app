@@ -10,7 +10,7 @@
   /* ### Primary */
 
   --BrightBlue: hsl(220, 98%, 61%);
-  --CheckBackground: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
+  --CheckBackground: linear-gradient(to left,hsl(192, 100%, 67%),hsl(280, 87%, 65%));
 
   /* ### Light Theme */
 
@@ -145,6 +145,8 @@ body {
   cursor: pointer;
 }
 
+
+
 .new-task .input {
   flex: 1;
   font-size: 1.2rem;
@@ -168,6 +170,24 @@ body {
   align-items: center;
   border-bottom: 1px solid var(--DarkGrayishBlue);
 }
+
+.task .circle:hover {
+  border: 1px double transparent;
+  border-radius: 80px;
+  background: linear-gradient(var(--VeryDarkDesaturatedBlue), var(--VeryDarkDesaturatedBlue)), radial-gradient(circle at top left, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  cursor: pointer;
+} 
+
+.task .circle.completed {
+  background-image: url("../public/images/icon-check.svg"), var(--CheckBackground);
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+}
+
+
 
 .task:first-child {
   border-top-left-radius: 10px;
