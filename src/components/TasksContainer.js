@@ -2,11 +2,11 @@ import Status from "./Status";
 import Task from "./Task";
 
 
-const TasksContainer = ({dark}) => {
+const TasksContainer = ({mode}) => {
   return (
     <div className="tasks-container">
-      <Task dark={dark}/>
-      <Status dark={dark}/>
+      <Task mode={mode}/>
+      <Status mode={mode}/>
     </div>
   );
 }

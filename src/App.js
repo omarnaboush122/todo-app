@@ -1,20 +1,33 @@
-import Container from "./components/Container";
-import "./App.css";
 import { useState } from "react";
+import NewTask from "./components/NewTask";
+import TasksContainer from "./components/TasksContainer";
+import "./App.css";
 
 const App = () => {
-  const [dark,setDark] = useState(true);
+  const [mode,setMode] = useState("dark");
 
   function toggleMode() {
-    setDark(prevDark => !prevDark);
+    if(mode === "dark") {
+      setMode("light")
+    } else {
+      setMode("dark");
+    }
   }
 
-  const style = {
-    backgroundColor: dark ? "hsl(235, 21%, 11%)" : "hsl(0, 0%, 98%)"
-  }
   return (
-    <div className="container" style={style}>
-      <Container dark={dark} toggleMode={toggleMode}/>
+    <div className={`container ${mode}`}>
+      <div className={`header ${mode}`}>
+      <div className="top">
+        <h1>Todo</h1>
+        <img
+          src={`./images/icon-${mode ? "sun" : "moon"}.svg`}
+          alt="sun"
+          onClick={toggleMode}
+        />
+      </div>
+      <NewTask mode={mode} />
+      <TasksContainer mode={mode}/>
+    </div>
     </div>
   );
 }
