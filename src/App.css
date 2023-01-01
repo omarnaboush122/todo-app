@@ -84,9 +84,10 @@ body {
   border-radius: 10px;
   display: flex;
   align-items: center;
+  margin-bottom: 1rem;
 }
 
-.new-task .circle {
+.circle {
   height: 1.5rem;
   width: 1.5rem;
   border-radius: 50%;
@@ -102,4 +103,30 @@ body {
   color: var(--VeryLightGrayishBlue);
   border: none;
   outline: none;
+}
+
+.tasks-container {
+  width: 550px;
+}
+
+.task {
+  background-color: var(--VeryDarkDesaturatedBlue);
+  padding: 1.3rem;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--DarkGrayishBlue);
+}
+
+.task:first-child {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.task .text {
+  color: var(--VeryLightGrayishBlue);
+  margin-right: auto;
+}
+
+.circle.add {
+  cursor: pointer;
 }
