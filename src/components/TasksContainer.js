@@ -1,3 +1,4 @@
+import Status from "./Status";
 import Task from "./Task";
 
 
@@ -7,6 +8,7 @@ const TasksContainer = () => {
       <Task/>
       <Task/>
       <Task/>
+      <Status/>
     </div>
   );
 }
