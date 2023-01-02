@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import NewTask from "./components/NewTask";
 import TasksContainer from "./components/TasksContainer";
 import "./App.css";
@@ -12,10 +12,33 @@ const App = () => {
       completed: false,
     },
   ]);
-  const [arrayLength, setArrayLength] = useState(tasksArray.length);
   const [mode, setMode] = useState("dark");
   const [inputText, setInputText] = useState("");
-  const [taskCompleted, setTaskCompleted] = useState(false);
+  const [filteredTasks, setFilteredTasks] = useState([]);
+  const [taskStatus, setTaskStatus] = useState("")
+  const [selectedBtn, setSelectedBtn] = useState("")
+
+  
+  useEffect(() => {
+    const filterHandler = () => {
+      switch (taskStatus) {
+        case 'completed':
+          setFilteredTasks(tasksArray.filter(task => task.completed === true))
+          setSelectedBtn(3)
+          break;
+        case 'active':
+          setFilteredTasks(tasksArray.filter(task => task.completed === false))
+          setSelectedBtn(2)
+          break;
+        default:
+          setFilteredTasks(tasksArray)
+          setSelectedBtn(1)
+          break;
+      }
+    }
+
+    filterHandler();
+  }, [tasksArray, taskStatus])
 
   function toggleCompleted(id) {
     setTasksArray((prevTasksArray) => {
@@ -54,7 +77,7 @@ const App = () => {
       prevTasksArray.filter((task) => task.id !== id)
     );
   }
-  console.log(tasksArray);
+  
   return (
     <div className={`container ${mode}`}>
       <div className={`header ${mode}`}>
@@ -77,6 +100,9 @@ const App = () => {
           tasksArray={tasksArray}
           deleteTask={deleteTask}
           toggleCompleted={toggleCompleted}
+          filteredTasks={filteredTasks}
+          selectedBtn={selectedBtn}
+          setTaskStatus={setTaskStatus}
         />
       </div>
     </div>
