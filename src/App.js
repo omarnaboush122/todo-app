@@ -78,6 +78,10 @@ const App = () => {
     );
   }
   
+  function deleteCompletedTasks() {
+    setTasksArray(tasksArray.filter(task => task.completed !== true))
+  }
+
   return (
     <div className={`container ${mode}`}>
       <div className={`header ${mode}`}>
@@ -103,6 +107,7 @@ const App = () => {
           filteredTasks={filteredTasks}
           selectedBtn={selectedBtn}
           setTaskStatus={setTaskStatus}
+          deleteCompletedTasks={deleteCompletedTasks}
         />
       </div>
     </div>
