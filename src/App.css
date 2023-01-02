@@ -171,6 +171,10 @@ body {
   border-bottom: 1px solid var(--DarkGrayishBlue);
 }
 
+.task .circle {
+  background-image: none;
+}
+
 .task .circle:hover {
   border: 1px double transparent;
   border-radius: 80px;

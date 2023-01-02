@@ -12,8 +12,20 @@ const App = () => {
       completed: false,
     },
   ]);
+  const [arrayLength, setArrayLength] = useState(tasksArray.length);
   const [mode, setMode] = useState("dark");
   const [inputText, setInputText] = useState("");
+  const [taskCompleted, setTaskCompleted] = useState(false);
+
+  function toggleCompleted(id) {
+    setTasksArray((prevTasksArray) => {
+      return prevTasksArray.map((task) => {
+        return task.id === id
+          ? { ...task, completed: !task.completed } 
+          : task
+      });
+    });
+  }
 
   function toggleMode() {
     if (mode === "dark") {
@@ -29,10 +41,12 @@ const App = () => {
       id: nanoid(),
       completed: false,
     };
-    if(taskText !== "") {
+    if (taskText !== "") {
       setTasksArray((prevTasksArray) => [newTask, ...prevTasksArray]);
+      setInputText("");
+    } else {
+      alert("please type something in the form");
     }
-    setInputText("");
   }
 
   function deleteTask(id) {
@@ -40,7 +54,7 @@ const App = () => {
       prevTasksArray.filter((task) => task.id !== id)
     );
   }
-
+  console.log(tasksArray);
   return (
     <div className={`container ${mode}`}>
       <div className={`header ${mode}`}>
@@ -52,11 +66,17 @@ const App = () => {
             onClick={toggleMode}
           />
         </div>
-        <NewTask mode={mode} addTask={addTask} inputText={inputText} setInputText={setInputText} />
+        <NewTask
+          mode={mode}
+          addTask={addTask}
+          inputText={inputText}
+          setInputText={setInputText}
+        />
         <TasksContainer
           mode={mode}
           tasksArray={tasksArray}
           deleteTask={deleteTask}
+          toggleCompleted={toggleCompleted}
         />
       </div>
     </div>

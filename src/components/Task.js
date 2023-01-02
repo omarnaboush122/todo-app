@@ -1,12 +1,7 @@
 import { useState } from "react";
 
 
-const Task = ({mode,text,deleteTask}) => {
-  const [taskCompleted,setTaskCompleted] = useState(true);
-
-  function toggleCompleted() {
-    setTaskCompleted(prevTaskCompleted => !prevTaskCompleted);
-  }
+const Task = ({mode,text,deleteTask,taskCompleted,toggleCompleted}) => {
   return (
     <div className={`task ${mode}`}>
       <div className={`circle ${taskCompleted && "completed"}`} onClick={toggleCompleted}></div>
