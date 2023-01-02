@@ -15,41 +15,46 @@ const App = () => {
   const [mode, setMode] = useState("dark");
   const [inputText, setInputText] = useState("");
   const [filteredTasks, setFilteredTasks] = useState([]);
-  const [taskStatus, setTaskStatus] = useState("")
-  const [selectedBtn, setSelectedBtn] = useState("")
+  const [taskStatus, setTaskStatus] = useState("");
+  const [selectedBtn, setSelectedBtn] = useState("");
 
-  
   useEffect(() => {
-    localStorage.setItem("tasksArray",JSON.stringify(tasksArray));
-  },[tasksArray])
+    setTasksArray(JSON.parse(localStorage.getItem("tasksArray")));
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("tasksArray", JSON.stringify(tasksArray));
+  }, [tasksArray]);
 
   useEffect(() => {
     const filterHandler = () => {
       switch (taskStatus) {
-        case 'completed':
-          setFilteredTasks(tasksArray.filter(task => task.completed === true))
-          setSelectedBtn(3)
+        case "completed":
+          setFilteredTasks(
+            tasksArray.filter((task) => task.completed === true)
+          );
+          setSelectedBtn(3);
           break;
-        case 'active':
-          setFilteredTasks(tasksArray.filter(task => task.completed === false))
-          setSelectedBtn(2)
+        case "active":
+          setFilteredTasks(
+            tasksArray.filter((task) => task.completed === false)
+          );
+          setSelectedBtn(2);
           break;
         default:
-          setFilteredTasks(tasksArray)
-          setSelectedBtn(1)
+          setFilteredTasks(tasksArray);
+          setSelectedBtn(1);
           break;
       }
-    }
+    };
 
     filterHandler();
-  }, [tasksArray, taskStatus])
+  }, [tasksArray, taskStatus]);
 
   function toggleCompleted(id) {
     setTasksArray((prevTasksArray) => {
       return prevTasksArray.map((task) => {
-        return task.id === id
-          ? { ...task, completed: !task.completed } 
-          : task
+        return task.id === id ? { ...task, completed: !task.completed } : task;
       });
     });
   }
@@ -81,9 +86,9 @@ const App = () => {
       prevTasksArray.filter((task) => task.id !== id)
     );
   }
-  
+
   function deleteCompletedTasks() {
-    setTasksArray(tasksArray.filter(task => task.completed !== true))
+    setTasksArray(tasksArray.filter((task) => task.completed !== true));
   }
 
   return (
