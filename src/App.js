@@ -20,6 +20,10 @@ const App = () => {
 
   
   useEffect(() => {
+    localStorage.setItem("tasksArray",JSON.stringify(tasksArray));
+  },[tasksArray])
+
+  useEffect(() => {
     const filterHandler = () => {
       switch (taskStatus) {
         case 'completed':
