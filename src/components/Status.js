@@ -5,7 +5,7 @@ const Status = ({
   setTaskStatus,
   deleteCompletedTasks,
 }) => {
-  
+
   const numberOfIncompleteTasks = () => {
     return tasksArray.filter(task => !task.completed).length;
   }
@@ -41,7 +41,7 @@ const Status = ({
 
       <div className={`task status-mobile ${mode}`}>
         <div className="top">
-          <div className="left">{tasksArray.length} items left</div>
+          <div className="left">{numberOfIncompleteTasks()} items left</div>
           <div className={`completed ${mode}`} onClick={deleteCompletedTasks}>
             Clear Completed
           </div>
