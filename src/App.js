@@ -5,13 +5,7 @@ import "./App.css";
 import { nanoid } from "nanoid";
 
 const App = () => {
-  const [tasksArray, setTasksArray] = useState([
-    {
-      text: "task",
-      id: nanoid(),
-      completed: false,
-    },
-  ]);
+  const [tasksArray, setTasksArray] = useState([]);
   const [mode, setMode] = useState("dark");
   const [inputText, setInputText] = useState("");
   const [filteredTasks, setFilteredTasks] = useState([]);
@@ -20,11 +14,13 @@ const App = () => {
 
   useEffect(() => {
     setTasksArray(JSON.parse(localStorage.getItem("tasksArray")));
+    setMode(JSON.parse(localStorage.getItem("mode")));
   }, []);
 
   useEffect(() => {
     localStorage.setItem("tasksArray", JSON.stringify(tasksArray));
-  }, [tasksArray]);
+    localStorage.setItem("mode", JSON.stringify(mode));
+  }, [tasksArray, mode]);
 
   useEffect(() => {
     const filterHandler = () => {
