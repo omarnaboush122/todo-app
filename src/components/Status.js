@@ -1,14 +1,14 @@
-const Status = ({
-  mode,
-  tasksArray,
-  selectedBtn,
-  setTaskStatus,
-  deleteCompletedTasks,
-}) => {
+import { useContext } from "react";
+import { Context } from "../Context";
 
-  const numberOfIncompleteTasks = () => {
-    return tasksArray.filter(task => !task.completed).length;
-  }
+const Status = () => {
+  const {
+    mode,
+    selectedBtn,
+    setTaskStatus,
+    deleteCompletedTasks,
+    numberOfIncompleteTasks,
+  } = useContext(Context);
 
   return (
     <div>

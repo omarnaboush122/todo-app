@@ -1,10 +1,9 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { Context } from "../Context";
 
 
 const NewTask = () => {
-  const [inputText,setInputText] = useState("");
-  const {mode,addTask} = useContext(Context);
+  const {mode,addTask,inputText,setInputText} = useContext(Context);
   return (
     <div className={`new-task ${mode}`}>
       <div className="circle" onClick={() => addTask(inputText)}></div>

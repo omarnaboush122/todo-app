@@ -15,7 +15,7 @@ const App = () => {
           <h1>Todo</h1>
           <img
             src={`./images/icon-${mode ? "sun" : "moon"}.svg`}
-            alt="sun"
+            alt=""
             onClick={toggleMode}
           />
         </div>
