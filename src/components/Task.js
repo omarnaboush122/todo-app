@@ -1,12 +1,15 @@
+import { useContext } from "react";
+import { Context } from "../Context";
 
 
-const Task = ({mode,text,deleteTask,taskCompleted,toggleCompleted}) => {
+const Task = ({task}) => {
+  const {mode,toggleCompleted,deleteTask} = useContext(Context);
   return (
     <div className={`task ${mode}`}>
-      <div className={`circle ${taskCompleted && "completed"}`} onClick={toggleCompleted}></div>
-      {taskCompleted ? <div className="text removed">{text}</div> : <div className="text">{text}</div>}
+      <div className={`circle ${task.taskCompleted && "completed"}`} onClick={toggleCompleted}></div>
+      {task.taskCompleted ? <div className="text removed">{task.text}</div> : <div className="text">{task.text}</div>}
       <div className="delete">
-        <img src="./images/icon-cross.svg" alt="cross" onClick={deleteTask} />
+        <img src="./images/icon-cross.svg" alt="cross" onClick={()=>deleteTask(task.id)} />
       </div>
     </div>
   );

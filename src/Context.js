@@ -89,7 +89,7 @@ const ContextProvider = ({children}) => {
 
 
   return (
-    <Context.Provider value={{mode,toggleMode}}>
+    <Context.Provider value={{mode,toggleMode,addTask,filteredTasks,}}>
       {children}
     </Context.Provider>
   )
